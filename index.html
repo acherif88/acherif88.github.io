@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Abdou Cherif Hono Digo</title>
+<meta name="description" content="Portfolio d'Abdou Cherif Hono Digo, étudiant Concepteur Développeur d'Applications à Zone 01 Rouen, en recherche d'alternance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout : barre latérale fixe bleu nuit + contenu en sections larges façon plateforme d'investissement (chiffres clés, bandeau défilant, cartes, FAQ). */
+:root{
+  --navy:#0F2440; --navy-2:#16335A; --navy-ink:#C9D6E8;
+  --bg:#F5F7FA; --surface:#FFFFFF; --fg:#13233A; --muted:#5A6B82; --line:#DCE3EC;
+  --gold:#C8902E; --gold-soft:#F4E6CC; --on-gold:#1B1405;
+  --f-display:"Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --f-body:"Manrope", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --side:300px; --r:14px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0B1626; --surface:#122238; --fg:#E7EDF5; --muted:#9AABC2; --line:#22364F;
+  --gold:#E2AE52; --gold-soft:#2C2412; --on-gold:#1B1405; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0B1626; --surface:#122238; --fg:#E7EDF5; --muted:#9AABC2; --line:#22364F;
+  --gold:#E2AE52; --gold-soft:#2C2412; --on-gold:#1B1405; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);line-height:1.1;text-wrap:balance;margin:0}
+p{margin:0}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+
+/* ---------- Sidebar ---------- */
+.side{position:fixed;inset:0 auto 0 0;width:var(--side);background:var(--navy);color:var(--navy-ink);
+  display:flex;flex-direction:column;gap:28px;padding:calc(36px + env(safe-area-inset-top,0px)) 28px calc(28px + env(safe-area-inset-bottom,0px));overflow-y:auto;z-index:10}
+.side .me{display:flex;flex-direction:column;gap:14px}
+.side img.avatar{width:112px;height:112px;border-radius:50%;border:3px solid var(--navy-2);box-shadow:0 0 0 2px var(--gold)}
+.side .name{font-family:var(--f-display);font-size:1.45rem;font-weight:700;color:#fff;line-height:1.15}
+.side .role{font-size:.92rem;color:var(--navy-ink)}
+.pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;
+  background:rgba(226,174,82,.14);color:#F1C877;padding:6px 10px;border-radius:999px;width:fit-content}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:#F1C877;box-shadow:0 0 0 3px rgba(241,200,119,.25)}
+.side nav ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.side nav a{display:flex;align-items:center;gap:12px;text-decoration:none;padding:9px 0;font-weight:600;font-size:.95rem;color:#9FB2CC;transition:color .2s}
+.side nav a::before{content:"";width:18px;height:1px;background:currentColor;transition:width .25s}
+.side nav a:hover,.side nav a.on{color:#fff}
+.side nav a.on::before,.side nav a:hover::before{width:36px;background:var(--gold)}
+.side .foot{margin-top:auto;display:flex;flex-direction:column;gap:10px;font-size:.85rem}
+.side .foot a{text-decoration:none;color:#fff;font-weight:600}
+.side .foot a:hover{color:#F1C877}
+.side .foot .sm{font-family:var(--f-mono);font-size:.72rem;color:#7F93AF}
+
+/* ---------- Main ---------- */
+main{margin-left:var(--side);min-width:0}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:clamp(16px,4vw,56px)}
+section{padding-block:clamp(56px,8vw,96px)}
+.eyebrow{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.h2{font-size:clamp(1.9rem,3.4vw,2.7rem);font-weight:800;margin-top:10px;letter-spacing:-.01em}
+.lead{color:var(--muted);max-width:62ch;margin-top:14px;font-size:1.05rem}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;font-weight:700;text-decoration:none;font-size:.95rem;border:1.5px solid transparent;cursor:pointer;font-family:inherit;transition:transform .15s, background .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{background:var(--gold);color:var(--on-gold)}
+.btn.ghost{border-color:rgba(255,255,255,.45);color:#fff;background:transparent}
+.btn.ghost:hover{background:rgba(255,255,255,.08)}
+
+/* Hero */
+.hero{position:relative;color:#fff;padding-block:0;background:var(--navy)}
+.hero .bg{position:absolute;inset:0;background:linear-gradient(100deg,rgba(15,36,64,.97) 0%,rgba(15,36,64,.88) 45%,rgba(15,36,64,.55) 100%),url("images/hero.jpg") center/cover no-repeat}
+.hero .wrap{position:relative;padding-block:clamp(64px,10vw,120px) clamp(40px,6vw,64px)}
+.hero h1{font-size:clamp(2.3rem,5.4vw,4.3rem);font-weight:800;letter-spacing:-.02em;max-width:16ch;margin-top:16px}
+.hero h1 em{font-style:normal;color:#F1C877}
+.hero p.sub{max-width:56ch;margin-top:20px;font-size:1.1rem;color:#D3DEEC}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:clamp(48px,7vw,80px);border-top:1px solid rgba(255,255,255,.18)}
+.stat{padding:22px 18px 0 0}
+.stat b{display:block;font-family:var(--f-display);font-size:clamp(2.2rem,4vw,3.4rem);font-weight:800;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+.stat b small{font-size:.45em;color:#F1C877;margin-left:4px;font-weight:700}
+.stat span{display:block;margin-top:8px;font-size:.88rem;color:#B7C6DA;max-width:22ch}
+
+/* Ticker */
+.ticker{background:var(--gold);color:var(--on-gold);overflow:hidden;padding-block:14px;white-space:nowrap}
+.ticker .track{display:inline-flex;gap:0;animation:scroll 38s linear infinite}
+.ticker span{font-family:var(--f-display);font-weight:700;font-size:1.05rem;padding-inline:22px;display:inline-flex;align-items:center;gap:22px}
+.ticker span::after{content:"◆";font-size:.55rem;opacity:.6}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* Feature cards */
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:40px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px 22px;display:flex;flex-direction:column;gap:12px}
+.card .ico{width:44px;height:44px;border-radius:12px;background:var(--gold-soft);color:var(--gold);display:grid;place-items:center}
+.card .ico svg{width:22px;height:22px}
+.card h3{font-size:1.15rem;font-weight:700}
+.card p{color:var(--muted);font-size:.94rem}
+
+/* Projects */
+.projects{background:var(--surface);border-block:1px solid var(--line)}
+.plist{display:flex;flex-direction:column;margin-top:36px;border-top:1px solid var(--line)}
+.proj{display:grid;grid-template-columns:90px minmax(0,1fr) minmax(0,.9fr);gap:28px;padding-block:32px;border-bottom:1px solid var(--line);align-items:start}
+.proj .code{font-family:var(--f-mono);font-size:.8rem;color:var(--muted);padding-top:6px}
+.proj h3{font-size:1.6rem;font-weight:800;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.tag-live{font-family:var(--f-mono);font-size:.68rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:999px;background:var(--gold-soft);color:var(--gold)}
+.proj p{color:var(--muted);margin-top:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chips li{list-style:none;font-family:var(--f-mono);font-size:.76rem;padding:5px 10px;border:1px solid var(--line);border-radius:999px;color:var(--fg)}
+.chips{padding:0}
+.mine{background:var(--bg);border-radius:var(--r);padding:18px 20px;font-size:.93rem}
+.mine b{display:block;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:6px}
+
+/* Cyber band */
+.cyber{padding-block:0}
+.cyber .inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:var(--navy);color:#fff;border-radius:22px;overflow:hidden}
+.cyber .pic{min-height:360px;background:linear-gradient(0deg,rgba(15,36,64,.25),rgba(15,36,64,.25)),url("images/cyber.jpg") center/cover no-repeat}
+.cyber .txt{padding:clamp(28px,5vw,56px);display:flex;flex-direction:column;gap:16px}
+.cyber .txt p{color:#C9D6E8}
+.cyber ul{margin:6px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px}
+.cyber li{display:flex;gap:12px;align-items:flex-start;font-size:.95rem;color:#E4EBF4}
+.cyber li::before{content:"";flex:none;width:8px;height:8px;margin-top:8px;border-radius:2px;background:#F1C877;transform:rotate(45deg)}
+
+/* Parcours */
+.cols{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);margin-top:40px}
+.cols h3{font-size:1rem;font-family:var(--f-mono);font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:136px minmax(0,1fr);gap:14px;padding-block:16px;border-bottom:1px solid var(--line)}
+.tl time{font-family:var(--f-mono);font-size:.74rem;white-space:nowrap;color:var(--gold);padding-top:3px;font-variant-numeric:tabular-nums}
+.tl strong{display:block;font-weight:700}
+.tl span{display:block;color:var(--muted);font-size:.92rem}
+.tl li.now strong::after{content:"en cours";margin-left:10px;font-family:var(--f-mono);font-size:.65rem;letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border-radius:999px;background:var(--gold);color:var(--on-gold);vertical-align:2px}
+
+/* Skills */
+.skills{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:36px}
+.skill h3{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:500;padding-bottom:12px;border-bottom:2px solid var(--fg)}
+.skill ul{list-style:none;margin:0;padding:0}
+.skill li{padding-block:10px;border-bottom:1px solid var(--line);font-weight:600}
+.skill li small{display:block;font-weight:400;color:var(--muted);font-size:.85rem}
+
+/* FAQ */
+.faq{max-width:820px;margin-top:32px}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;align-items:center;padding-block:22px;font-family:var(--f-display);font-weight:700;font-size:1.2rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";flex:none;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-family:var(--f-body);font-weight:500;font-size:1.3rem;color:var(--gold);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);padding-bottom:22px;max-width:65ch}
+
+/* Contact */
+.contact{background:var(--navy);color:#fff}
+.contact .h2{color:#fff}
+.contact .lead{color:#C9D6E8}
+.crow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:36px}
+.cbox{border:1px solid rgba(255,255,255,.16);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.cbox .k{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#F1C877}
+.cbox .v{font-weight:700;font-size:1.02rem;overflow-wrap:anywhere;user-select:all}
+.cbox button{align-self:flex-start;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:6px 14px;font-family:inherit;font-weight:600;font-size:.82rem;cursor:pointer}
+.cbox button:hover{background:rgba(255,255,255,.08)}
+.cbox a.v{text-decoration:none}
+.cbox a.v:hover{color:#F1C877}
+footer{background:var(--navy);color:#7F93AF;font-size:.8rem;border-top:1px solid rgba(255,255,255,.1)}
+footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+footer a{color:#B7C6DA}
+
+.subhead{font-family:var(--f-mono);font-size:.78rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:48px}
+.others{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px;margin-top:12px}
+.others div{padding-block:16px;border-bottom:1px solid var(--line);min-width:0}
+.others b{display:block;font-family:var(--f-display);font-size:1.1rem}
+.others span{display:block;color:var(--muted);font-size:.92rem;margin-top:4px}
+.steps{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+.step{display:grid;grid-template-columns:170px minmax(0,1fr);gap:16px;align-items:center}
+.step .when{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)}
+@media (max-width:640px){.step{grid-template-columns:minmax(0,1fr);gap:6px}}
+.step .next{margin-top:0}
+.next{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-wrap:wrap;gap:10px}
+.next li{border:1px dashed var(--line);border-radius:999px;padding:8px 14px;font-weight:600;font-size:.9rem}
+.next li small{font-weight:400;color:var(--muted);margin-left:6px}
+.next li.hl{border:1.5px solid var(--gold);color:var(--fg)}
+.cvsec{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:clamp(28px,5vw,64px);align-items:center}
+.cvnote{color:var(--muted);font-size:.88rem;margin-top:14px}
+.cvimg{padding:0;border:1px solid var(--line);border-radius:6px;background:#fff;cursor:zoom-in;box-shadow:0 24px 50px -20px rgba(15,36,64,.45);transform:rotate(1.2deg);transition:transform .25s;max-width:100%}
+.cvimg:hover{transform:rotate(0) translateY(-4px)}
+.cvimg img{display:block;width:100%;height:auto;border-radius:6px}
+.lightbox{position:fixed;inset:0;z-index:50;background:rgba(8,18,32,.88);overflow-y:auto;padding:calc(56px + env(safe-area-inset-top,0px)) 16px 32px;display:flex;flex-direction:column;align-items:center}
+.lightbox img{width:min(900px,100%);height:auto;border-radius:4px;background:#fff}
+.lbclose{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:16px;background:var(--gold);color:var(--on-gold);border:0;border-radius:999px;padding:8px 16px;font-family:inherit;font-weight:700;cursor:pointer}
+@media (max-width:900px){.cvsec{grid-template-columns:minmax(0,1fr)}.cvimg{max-width:420px}}
+/* ---------- Responsive ---------- */
+@media (max-width:1100px){.grid4,.skills{grid-template-columns:repeat(2,minmax(0,1fr))}.proj{grid-template-columns:minmax(0,1fr)}.proj .code{padding-top:0}}
+@media (max-width:900px){
+  .side{position:sticky;top:0;width:auto;inset:auto;flex-direction:row;align-items:center;gap:14px;padding:calc(12px + env(safe-area-inset-top,0px)) 16px 12px;overflow:visible}
+  .side .me{flex-direction:row;align-items:center;gap:12px}
+  .side img.avatar{width:44px;height:44px;border-width:2px}
+  .side .name{font-size:1.02rem}
+  .side .role,.side .pill,.side .foot{display:none}
+  .side nav{margin-left:auto;overflow-x:auto}
+  .side nav ul{flex-direction:row;gap:14px}
+  .side nav a{font-size:.85rem;white-space:nowrap}
+  .side nav a::before{display:none}
+  main{margin-left:0}
+  .cyber .inner,.cols{grid-template-columns:minmax(0,1fr)}
+  .cyber .pic{min-height:240px}
+  .crow{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:640px){
+  .others{grid-template-columns:minmax(0,1fr)}
+  .side nav{display:none}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid4,.skills{grid-template-columns:minmax(0,1fr)}
+  .tl li{grid-template-columns:minmax(0,1fr);gap:4px}
+}
+</style>
+
+</head>
+<body>
+<aside class="side" aria-label="Profil et navigation">
+  <div class="me">
+    <img class="avatar" src="images/me.png" alt="Portrait d'Abdou Cherif Hono Digo">
+    <div>
+      <div class="name">Abdou Cherif<br>Hono Digo</div>
+    </div>
+    <div class="role">Concepteur Développeur d'Applications en formation · Orientation cybersécurité</div>
+    <span class="pill">En recherche d'alternance</span>
+  </div>
+  <nav aria-label="Sections">
+    <ul>
+      <li><a href="#accueil" class="on">Accueil</a></li>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#cyber">Cybersécurité</a></li>
+      <li><a href="#parcours">Parcours</a></li>
+      <li><a href="#competences">Compétences</a></li>
+      <li><a href="#faq">Questions</a></li>
+      <li><a href="#cv">CV</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="foot">
+    <a href="https://www.linkedin.com/in/abdou-cherif-hono-digo-45813a320/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <span>abdou.cherif.pro@gmail.com</span>
+    <span class="sm">Mont-Saint-Aignan (76) · Permis B, véhiculé</span>
+  </div>
+</aside>
+
+<main>
+  <section class="hero" id="accueil">
+    <div class="bg" role="img" aria-label="Écran affichant du code"></div>
+    <div class="wrap">
+      <span class="eyebrow">Zone 01 Rouen · Cursus CDA 2026 – 2028</span>
+      <h1>Développeur Go en formation, je cherche une <em>alternance à Rouen</em>.</h1>
+      <p class="sub">Je suis en 1re année du titre Concepteur Développeur d'Applications à Zone 01. J'y apprends en codant des projets en équipe : Go, web, bases de données, Docker. Avant ça, j'ai travaillé cinq ans en logistique, en production et en sécurité.</p>
+      <div class="ctas">
+        <a class="btn primary" href="#projets">Voir mes projets →</a>
+        <a class="btn ghost" href="#contact">Me contacter</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>6</b><span>projets validés à Zone 01</span></div>
+        <div class="stat"><b>1</b><span>projet en cours : un forum web</span></div>
+        <div class="stat"><b>2</b><span>certificats Google (cybersécurité, support IT)</span></div>
+        <div class="stat"><b>2028</b><span>fin du cursus, en juin</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-label="Technologies utilisées">
+    <div class="track">
+      <span>Go</span><span>SQLite</span><span>HTML / CSS</span><span>JavaScript</span><span>API REST</span><span>Docker</span><span>Git</span><span>Linux</span><span>bcrypt</span><span>Leaflet</span><span>Tests unitaires</span>
+      <span aria-hidden="true">Go</span><span aria-hidden="true">SQLite</span><span aria-hidden="true">HTML / CSS</span><span aria-hidden="true">JavaScript</span><span aria-hidden="true">API REST</span><span aria-hidden="true">Docker</span><span aria-hidden="true">Git</span><span aria-hidden="true">Linux</span><span aria-hidden="true">bcrypt</span><span aria-hidden="true">Leaflet</span><span aria-hidden="true">Tests unitaires</span>
+    </div>
+  </div>
+
+  <section class="projects" id="projets">
+    <div class="wrap">
+      <span class="eyebrow">Projets</span>
+      <h2 class="h2">Mes projets à Zone 01</h2>
+      <p class="lead">Les projets se font en groupe, avec Git et une correction par d'autres apprenants. Pour chacun, j'indique la partie que j'ai codée.</p>
+      <div class="plist">
+        <article class="proj">
+          <div class="code">En cours</div>
+          <div>
+            <h3>Forum <span class="tag-live">en cours</span></h3>
+            <p>Le projet : un forum web avec inscription, connexion, posts, commentaires, likes et filtres par catégorie. Les données sont dans SQLite, les mots de passe hachés avec bcrypt, les sessions gérées par cookies.</p>
+            <ul class="chips"><li>Go</li><li>SQLite</li><li>bcrypt</li><li>Cookies</li><li>HTML/CSS</li></ul>
+          </div>
+          <div class="mine"><b>Ma partie</b>Le formulaire de création de post : saisie, vérification des champs et enregistrement en base.</div>
+        </article>
+        <article class="proj">
+          <div class="code">Validé</div>
+          <div>
+            <h3>Groupie Tracker</h3>
+            <p>Un site qui lit une API JSON d'artistes et affiche leurs membres, dates et lieux de concerts. Deux extensions validées ensuite : <strong>geolocalization</strong> (carte des concerts avec Leaflet et OpenStreetMap) et <strong>visualizations</strong> (mise en page des données).</p>
+            <ul class="chips"><li>Go</li><li>API REST</li><li>JavaScript</li><li>Leaflet</li><li>Tests unitaires</li></ul>
+          </div>
+          <div class="mine"><b>Ma partie</b>La page artiste et la gestion des erreurs quand l'identifiant demandé n'existe pas.</div>
+        </article>
+        <article class="proj">
+          <div class="code">Validé</div>
+          <div>
+            <h3>ASCII Art Web</h3>
+            <p>Une application web qui transforme un texte en art ASCII selon trois polices. Extensions : <strong>stylize</strong> (interface), <strong>export-file</strong> (téléchargement du résultat) et <strong>dockerize</strong> (Dockerfile pour lancer l'application dans un conteneur).</p>
+            <ul class="chips"><li>Go</li><li>net/http</li><li>Templates</li><li>Docker</li></ul>
+          </div>
+          <div class="mine"><b>Avant la version web</b>Le programme ASCII Art en ligne de commande et ses variantes color, fs et justify.</div>
+        </article>
+      </div>
+
+      <h3 class="subhead">Autres projets validés</h3>
+      <div class="others">
+        <div><b>Go Reloaded</b><span>Outil qui corrige un fichier texte : conversions hexadécimal et binaire, majuscules et minuscules (up, low, cap), ponctuation, « a » en « an ».</span></div>
+        <div><b>ASCII Art</b><span>Affichage d'un texte en grandes lettres ASCII dans le terminal, avec tests unitaires.</span></div>
+        <div><b>Math Skills</b><span>Calcul de la moyenne, de la médiane, de la variance et de l'écart type à partir d'un fichier de données.</span></div>
+        <div><b>Git</b><span>Les bases du travail en équipe : branches, commits, fusion, résolution de conflits.</span></div>
+      </div>
+
+      <h3 class="subhead">La suite du cursus</h3>
+      <div class="steps">
+        <div class="step"><span class="when">Prochaine étape</span><ul class="next"><li class="hl">Piscine JS <small>JavaScript, DOM</small></li></ul></div>
+        <div class="step"><span class="when">Ensuite</span><ul class="next"><li>Net-Cat <small>chat TCP en Go</small></li><li>Lem-in <small>algorithme de chemins</small></li><li>Tetris Optimizer</li><li>Push-Swap</li><li>ATM Management System</li></ul></div>
+        <div class="step"><span class="when">Spécialisation visée</span><ul class="next"><li class="hl">Piscine cybersécurité <small>Linux, VM, réseau, scan</small></li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cyber">
+    <div class="wrap cyber">
+      <div class="inner">
+        <div class="pic" role="img" aria-label="Cadenas posé sur un clavier d'ordinateur"></div>
+        <div class="txt">
+          <span class="eyebrow">Orientation cybersécurité</span>
+          <h2 class="h2" style="color:#fff">Pourquoi la cybersécurité</h2>
+          <p>La sécurité, je l'ai pratiquée sur le terrain pendant deux missions d'agent de sécurité, puis j'ai passé le certificat Google Cybersecurity. Après le tronc commun, je choisirai la branche cybersécurité du cursus.</p>
+          <ul>
+            <li>Google Cybersecurity Professional Certificate (Coursera, 2025)</li>
+            <li>Google IT Support Professional Certificate (Coursera, 2025)</li>
+            <li>Forum : mots de passe hachés avec bcrypt, sessions par cookies</li>
+            <li>Formation en maintenance informatique et réseaux (2013)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="parcours">
+    <div class="wrap">
+      <span class="eyebrow">Parcours</span>
+      <h2 class="h2">Expériences et formation</h2>
+      <div class="cols">
+        <div>
+          <h3>Expériences</h3>
+          <ol class="tl">
+            <li><time>11/2025 – 02/2026</time><div><strong>Cariste · VPK</strong><span>Alizay (27) · approvisionnement des lignes, gestion des stocks</span></div></li>
+            <li><time>07 – 09/2025</time><div><strong>Agent de sécurité · Leader Private Security</strong><span>Royan (17) · surveillance de site, contrôle d'accès</span></div></li>
+            <li><time>11/2024 – 05/2025</time><div><strong>Opérateur de production · GREIF</strong><span>Grand-Quevilly (76) · conduite de ligne, contrôle qualité</span></div></li>
+            <li><time>09 – 10/2024</time><div><strong>Agent de sécurité et prévention · Atlas Sécurité</strong><span>Rouen (76) · accueil, rondes, prévention</span></div></li>
+            <li><time>08/2021 – 02/2023</time><div><strong>Cariste CACES 5 · Rhenus Logistics</strong><span>Grand-Quevilly (76) · stockage, préparation de commandes</span></div></li>
+          </ol>
+        </div>
+        <div>
+          <h3>Formation</h3>
+          <ol class="tl">
+            <li class="now"><time>2026 – 2028</time><div><strong>Concepteur Développeur d'Applications</strong><span>Zone 01 Rouen · Titre professionnel RNCP niveau 6</span></div></li>
+            <li><time>2025</time><div><strong>Certificats Google</strong><span>Cybersecurity · IT Support (Coursera)</span></div></li>
+            <li><time>2021</time><div><strong>Titre Opérateur Logistique Polyvalent</strong><span>Loginov (Nord)</span></div></li>
+            <li><time>2013</time><div><strong>Maintenance informatique et réseaux</strong><span>Institut international d'informatique, Omdurman (Soudan)</span></div></li>
+            <li><time>2011</time><div><strong>Baccalauréat scientifique</strong><span>Lycée Alsalam, Omdurman (Soudan)</span></div></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="competences" style="padding-top:0">
+    <div class="wrap">
+      <span class="eyebrow">Compétences</span>
+      <h2 class="h2">Compétences</h2>
+      <div class="skills">
+        <div class="skill"><h3>Langages</h3><ul><li>Go</li><li>HTML / CSS</li><li>JavaScript <small>bases</small></li><li>SQL <small>SQLite</small></li></ul></div>
+        <div class="skill"><h3>Web</h3><ul><li>Serveur HTTP <small>net/http, templates</small></li><li>API REST / JSON</li><li>Authentification <small>sessions, cookies, bcrypt</small></li></ul></div>
+        <div class="skill"><h3>Outils</h3><ul><li>Git</li><li>Docker</li><li>Linux / Shell</li><li>VS Code</li></ul></div>
+        <div class="skill"><h3>Langues</h3><ul><li>Arabe <small>langue maternelle</small></li><li>Français <small>courant</small></li><li>Anglais <small>intermédiaire, technique</small></li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" style="padding-top:0">
+    <div class="wrap">
+      <span class="eyebrow">Infos pratiques</span>
+      <h2 class="h2">Questions pratiques</h2>
+      <div class="faq">
+        <details open><summary>Quelle alternance je recherche</summary><p>Une alternance en développement d'applications, de préférence avec du back-end en Go ou une dimension sécurité. Je reste ouvert à d'autres langages : à Zone 01, on apprend à se former seul sur une nouvelle techno.</p></details>
+        <details><summary>Durée de la formation</summary><p>Le cursus Zone 01 dure deux ans, de juin 2026 à juin 2028. Il prépare au titre professionnel Concepteur Développeur d'Applications (RNCP niveau 6).</p></details>
+        <details><summary>Où je peux travailler</summary><p>À Rouen et dans les environs. J'habite à Mont-Saint-Aignan, j'ai le permis B et une voiture.</p></details>
+        <details><summary>Pourquoi le développement</summary><p>J'ai étudié la maintenance informatique et les réseaux au Soudan en 2013. En France, j'ai d'abord travaillé en logistique et en sécurité. Zone 01 me permet de revenir à l'informatique, cette fois pour concevoir des applications.</p></details>
+        <details><summary>Comment on apprend à Zone 01</summary><p>Sans cours magistraux ni professeurs : on code des projets en groupe, on cherche par soi-même, et chaque projet est corrigé par d'autres apprenants avant d'être validé.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="cv">
+    <div class="wrap cvsec">
+      <div class="cvtxt">
+        <span class="eyebrow">CV</span>
+        <h2 class="h2">Mon CV</h2>
+        <p class="lead">Une page avec mes expériences, ma formation à Zone 01, mes projets et mes certifications. Cliquez sur l'aperçu pour l'agrandir.</p>
+        <div class="ctas" style="margin-top:24px">
+          <a class="btn primary" href="CV_Abdou_Cherif_Hono_Digo.pdf" download>Télécharger le CV (PDF) ↓</a>
+        </div>
+        <p class="cvnote">Format PDF, une page.</p>
+      </div>
+      <button type="button" class="cvimg" id="cvopen" aria-label="Agrandir l'aperçu du CV">
+        <img src="images/cv.jpg" alt="Aperçu du CV d'Abdou Cherif Hono Digo" loading="lazy" width="1075" height="1521">
+      </button>
+    </div>
+  </section>
+  <div class="lightbox" id="cvbox" hidden>
+    <button type="button" class="lbclose" id="cvclose">Fermer ✕</button>
+    <img src="images/cv.jpg" alt="CV d'Abdou Cherif Hono Digo en grand">
+  </div>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <span class="eyebrow">Contact</span>
+      <h2 class="h2">Me contacter</h2>
+      <p class="lead">Je réponds par e-mail ou par téléphone.</p>
+      <div class="crow">
+        <div class="cbox"><span class="k">E-mail</span><span class="v" id="mail">abdou.cherif.pro@gmail.com</span><button type="button" data-copy="mail">Copier</button></div>
+        <div class="cbox"><span class="k">Téléphone</span><span class="v" id="tel">06 66 63 66 96</span><button type="button" data-copy="tel">Copier</button></div>
+        <div class="cbox"><span class="k">LinkedIn</span><a class="v" href="https://www.linkedin.com/in/abdou-cherif-hono-digo-45813a320/" target="_blank" rel="noopener">Abdou Cherif Hono Digo ↗</a></div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Abdou Cherif Hono Digo · Mont-Saint-Aignan</span>
+      <span>Photos : <a href="https://unsplash.com/fr/photos/oXlXu2qukGE" target="_blank" rel="noopener">Mohammad Rahmani</a> et <a href="https://unsplash.com/fr/photos/mT7lXZPjk7U" target="_blank" rel="noopener">FlyD</a> sur Unsplash</span>
+    </div>
+  </footer>
+</main>
+
+<script>
+document.querySelectorAll('[data-copy]').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const el=document.getElementById(b.dataset.copy), t=el.textContent.trim();
+    const done=()=>{b.textContent='Copié';setTimeout(()=>b.textContent='Copier',1800)};
+    const sel=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Sélectionné'};
+    try{navigator.clipboard.writeText(t).then(done,sel)}catch(e){sel()}
+  });
+});
+const links=[...document.querySelectorAll('.side nav a')];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-40% 0px -55% 0px'});
+document.querySelectorAll('main section[id]').forEach(s=>io.observe(s));
+const box=document.getElementById('cvbox');
+document.getElementById('cvopen').addEventListener('click',()=>{box.hidden=false;document.getElementById('cvclose').focus()});
+document.getElementById('cvclose').addEventListener('click',()=>{box.hidden=true;document.getElementById('cvopen').focus()});
+box.addEventListener('click',e=>{if(e.target===box)box.hidden=true});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')box.hidden=true});
+</script>
+
+</body>
+</html>
