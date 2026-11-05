@@ -205,6 +205,14 @@ footer a{color:#B7C6DA}
 .cvimg{padding:0;border:1px solid var(--line);border-radius:6px;background:#fff;cursor:zoom-in;box-shadow:0 24px 50px -20px rgba(15,36,64,.45);transform:rotate(1.2deg);transition:transform .25s;max-width:100%}
 .cvimg:hover{transform:rotate(0) translateY(-4px)}
 .cvimg img{display:block;width:100%;height:auto;border-radius:6px}
+.shots{grid-column:2/-1;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:18px;align-items:start;margin-top:4px}
+.shots figure{margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
+.shot{padding:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface);cursor:zoom-in;display:block;width:100%;transition:transform .2s,box-shadow .2s}
+.shot:hover{transform:translateY(-2px);box-shadow:0 14px 30px -18px rgba(15,36,64,.5)}
+.shot img{display:block;width:100%;height:auto}
+.shots figcaption{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
+@media (max-width:1100px){.shots{grid-column:auto}}
+@media (max-width:640px){.shots{grid-template-columns:minmax(0,1fr)}}
 .lightbox{position:fixed;inset:0;z-index:50;background:rgba(8,18,32,.88);overflow-y:auto;padding:calc(56px + env(safe-area-inset-top,0px)) 16px 32px;display:flex;flex-direction:column;align-items:center}
 .lightbox img{width:min(900px,100%);height:auto;border-radius:4px;background:#fff}
 .lbclose{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:16px;background:var(--gold);color:var(--on-gold);border:0;border-radius:999px;padding:8px 16px;font-family:inherit;font-weight:700;cursor:pointer}
@@ -280,6 +288,8 @@ footer a{color:#B7C6DA}
       <div class="ctas">
         <a class="btn primary" href="#projets">Voir mes projets →</a>
         <a class="btn ghost" href="#contact">Me contacter</a>
+        <a class="btn ghost" href="https://github.com/acherif88" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/abdou-cherif-hono-digo-45813a320/" target="_blank" rel="noopener">LinkedIn ↗</a>
       </div>
       <div class="stats">
         <div class="stat"><b>7</b><span>projets réalisés à Zone 01</span></div>
@@ -309,8 +319,13 @@ footer a{color:#B7C6DA}
             <h3>Forum</h3>
             <p>Un forum web réalisé à quatre : inscription et connexion, posts par catégories, commentaires, likes et dislikes, filtres (date, catégorie, score) et barre de recherche, mot de passe oublié. Données dans SQLite, mots de passe hachés avec bcrypt, sessions par cookies, lancement avec Docker Compose.</p>
             <ul class="chips"><li>Go</li><li>SQLite</li><li>bcrypt</li><li>Cookies</li><li>Docker</li><li>HTML/CSS</li></ul>
+            <a class="codelink" href="https://github.com/PierreBasley/forum" target="_blank" rel="noopener">Voir le code sur GitHub (dépôt de l'équipe) ↗</a>
           </div>
           <div class="mine"><b>Ma partie</b>Le formulaire de création de post, le système de migrations de la base de données (scripts SQL versionnés lancés au démarrage), les commentaires (table, structure Go et formulaire) et le README du projet.<span class="defi"><b>Le défi</b>Faire évoluer la base sans la recréer à chaque changement. Chaque script SQL est enregistré dans une table <code>schema_migrations</code> et n'est appliqué qu'une seule fois au démarrage.</span></div>
+          <div class="shots">
+            <figure><button type="button" class="shot" data-src="forum-accueil.jpg" data-alt="Page d'accueil du Forum en grand"><img src="forum-accueil.jpg" alt="Page d'accueil du Forum : recherche, tri, filtres par catégorie (go et sql cochés) et deux questions avec leur score, leurs catégories et leurs réponses" loading="lazy" width="1200" height="787"></button><figcaption>Accueil : recherche, tri et filtres</figcaption></figure>
+            <figure><button type="button" class="shot" data-src="forum-creation.jpg" data-alt="Formulaire de création de post du Forum en grand"><img src="forum-creation.jpg" alt="Formulaire « Poser une question » : titre limité à 50 caractères, description et choix des technologies" loading="lazy" width="1200" height="863"></button><figcaption>Création de post, ma partie</figcaption></figure>
+          </div>
         </article>
         <article class="proj">
           <div class="code">Validé</div>
@@ -441,6 +456,10 @@ footer a{color:#B7C6DA}
       </button>
     </div>
   </section>
+  <div class="lightbox" id="shotbox" hidden>
+    <button type="button" class="lbclose" id="shotclose">Fermer ✕</button>
+    <img src="forum-accueil.jpg" alt="" id="shotimg">
+  </div>
   <div class="lightbox" id="cvbox" hidden>
     <button type="button" class="lbclose" id="cvclose">Fermer ✕</button>
     <img src="cv.jpg" alt="CV d'Abdou Cherif Hono Digo en grand">
@@ -482,7 +501,12 @@ const box=document.getElementById('cvbox');
 document.getElementById('cvopen').addEventListener('click',()=>{box.hidden=false;document.getElementById('cvclose').focus()});
 document.getElementById('cvclose').addEventListener('click',()=>{box.hidden=true;document.getElementById('cvopen').focus()});
 box.addEventListener('click',e=>{if(e.target===box)box.hidden=true});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')box.hidden=true});
+const sbox=document.getElementById('shotbox'),simg=document.getElementById('shotimg');let lastShot=null;
+document.querySelectorAll('.shot').forEach(b=>b.addEventListener('click',()=>{simg.src=b.dataset.src;simg.alt=b.dataset.alt;lastShot=b;sbox.hidden=false;document.getElementById('shotclose').focus()}));
+const closeShot=()=>{sbox.hidden=true;if(lastShot)lastShot.focus()};
+document.getElementById('shotclose').addEventListener('click',closeShot);
+sbox.addEventListener('click',e=>{if(e.target===sbox)closeShot()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){box.hidden=true;if(!sbox.hidden)closeShot()}});
 </script>
 
 </body>
