@@ -44,6 +44,8 @@ body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16
 a{color:inherit}
 h1,h2,h3{font-family:var(--f-display);line-height:1.1;text-wrap:balance;margin:0}
 p{margin:0}
+.skip{position:absolute;left:-9999px;top:8px;z-index:100;background:var(--gold);color:var(--on-gold);padding:10px 16px;border-radius:8px;font-weight:700;text-decoration:none}
+.skip:focus{left:16px}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
 
 /* ---------- Sidebar ---------- */
@@ -238,6 +240,7 @@ footer a{color:#B7C6DA}
 
 </head>
 <body>
+<a class="skip" href="#accueil">Aller au contenu</a>
 <aside class="side" aria-label="Profil et navigation">
   <div class="me">
     <img class="avatar" src="me.png" alt="Portrait d'Abdou Cherif Hono Digo">
@@ -263,7 +266,7 @@ footer a{color:#B7C6DA}
     <a href="https://www.linkedin.com/in/abdou-cherif-hono-digo-45813a320/" target="_blank" rel="noopener">LinkedIn ↗</a>
     <a href="https://github.com/acherif88" target="_blank" rel="noopener">GitHub ↗</a>
     <span>abdou.cherif.pro@gmail.com</span>
-    <span class="sm">Mont-Saint-Aignan (76) · Permis B, véhiculé<br>Alternance : Normandie et Île-de-France</span>
+    <span class="sm">Mont-Saint-Aignan (76) · Permis B, véhiculé<br>Alternance : Normandie et <span style="white-space:nowrap">Île-de-France</span></span>
   </div>
 </aside>
 
@@ -273,7 +276,7 @@ footer a{color:#B7C6DA}
     <div class="wrap">
       <span class="eyebrow">Zone 01 Rouen · Cursus CDA 2026 – 2028</span>
       <h1>Développeur Go en formation, je cherche une <em>alternance en Normandie ou en Île-de-France</em>.</h1>
-      <p class="sub">Je suis en 1re année du titre Concepteur Développeur d'Applications à Zone 01. J'y apprends en codant des projets en équipe : Go, web, bases de données, Docker. Avant ça, j'ai travaillé cinq ans en logistique, en production et en sécurité.</p>
+      <p class="sub">Je suis en 1re année du titre Concepteur Développeur d'Applications à Zone 01. J'y apprends en codant des projets en équipe : Go, web, bases de données, Docker. De 2021 à 2026, j'ai travaillé en logistique, en production et en sécurité.</p>
       <div class="ctas">
         <a class="btn primary" href="#projets">Voir mes projets →</a>
         <a class="btn ghost" href="#contact">Me contacter</a>
@@ -298,7 +301,7 @@ footer a{color:#B7C6DA}
     <div class="wrap">
       <span class="eyebrow">Projets</span>
       <h2 class="h2">Mes projets à Zone 01</h2>
-      <p class="lead">Les projets se font en groupe, avec Git et une correction par d'autres apprenants. Pour chacun, j'indique la partie que j'ai codée.</p>
+      <p class="lead">La plupart des projets se font en groupe, avec Git et une correction par d'autres apprenants. Pour chacun, j'indique la partie que j'ai codée.</p>
       <div class="plist">
         <article class="proj">
           <div class="code">Terminé</div>
@@ -413,7 +416,7 @@ footer a{color:#B7C6DA}
       <span class="eyebrow">Infos pratiques</span>
       <h2 class="h2">Questions pratiques</h2>
       <div class="faq">
-        <details open><summary>Quelle alternance je recherche</summary><p>Une alternance en développement d'applications, de préférence avec du back-end en Go ou une dimension sécurité. Je reste ouvert à d'autres langages : à Zone 01, on apprend à se former seul sur une nouvelle techno.</p></details>
+        <details open><summary>L'alternance que je recherche</summary><p>Une alternance en développement d'applications, de préférence avec du back-end en Go ou une dimension sécurité. Je reste ouvert à d'autres langages : à Zone 01, on apprend à se former seul sur une nouvelle technologie.</p></details>
         <details><summary>Durée de la formation</summary><p>Le cursus Zone 01 dure deux ans, de juin 2026 à juin 2028. Il prépare au titre professionnel Concepteur Développeur d'Applications (RNCP niveau 6).</p></details>
         <details><summary>Où je peux travailler</summary><p>En Normandie et en Île-de-France. J'habite à Mont-Saint-Aignan, près de Rouen, j'ai le permis B et une voiture.</p></details>
         <details><summary>Pourquoi le développement</summary><p>J'ai étudié la maintenance informatique et les réseaux au Soudan en 2013. En France, j'ai d'abord travaillé en logistique et en sécurité. Zone 01 me permet de revenir à l'informatique, cette fois pour concevoir des applications.</p></details>
