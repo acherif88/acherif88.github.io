@@ -206,6 +206,7 @@ footer a{color:#B7C6DA}
 .cvimg:hover{transform:rotate(0) translateY(-4px)}
 .cvimg img{display:block;width:100%;height:auto;border-radius:6px}
 .shots{grid-column:2/-1;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:18px;align-items:start;margin-top:4px}
+.shots-one{grid-template-columns:minmax(0,1fr);max-width:760px}
 .shots figure{margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
 .shot{padding:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface);cursor:zoom-in;display:block;width:100%;transition:transform .2s,box-shadow .2s}
 .shot:hover{transform:translateY(-2px);box-shadow:0 14px 30px -18px rgba(15,36,64,.5)}
@@ -336,6 +337,9 @@ footer a{color:#B7C6DA}
             <a class="codelink" href="https://github.com/acherif88/groupie-tracker" target="_blank" rel="noopener">Voir le code sur GitHub ↗</a>
           </div>
           <div class="mine"><b>Ma partie</b>Tout le back-end en Go : appel et décodage de l'API JSON, modèles de données, handlers HTTP (dont la page artiste et la gestion des identifiants invalides) et tests unitaires.<span class="defi"><b>Le défi</b>L'API sépare artistes, lieux, dates et relations dans quatre routes : une fonction Go par route, puis tout est assemblé sur la page artiste. Un identifiant invalide renvoie une page d'erreur 400 ou 404 au lieu de faire planter le serveur.</span></div>
+          <div class="shots shots-one">
+            <figure><button type="button" class="shot" data-src="groupie-accueil.jpg" data-alt="Page d'accueil de Groupie Tracker en grand"><img src="groupie-accueil.jpg" alt="Page d'accueil de Groupie Tracker : barre de recherche et grille de cartes d'artistes avec leur photo, leur nom et leur année de création" loading="lazy" width="1200" height="572"></button><figcaption>Accueil : liste des artistes et recherche</figcaption></figure>
+          </div>
         </article>
         <article class="proj">
           <div class="code">Validé</div>
